@@ -14,7 +14,9 @@ export class UserComponent implements OnInit {
   users: any[]=[];
   //products: any[] = [{"nombre" :"Pasta","precio":2000}, {"nombre" :"Frijol","precio":4000},{"nombre" :"Jabon","precio":1500},{"nombre" :"Arroz","precio":900}];
   selectedProduct: any={};
+  selectedClient: any={};
   products = [];
+  clients = [];
   Total = 0;
 
    alerting(usert){
@@ -54,7 +56,11 @@ export class UserComponent implements OnInit {
     this.ProductService.getData().subscribe(data =>{
       console.log(data.items);
       this.products= data.items;
-    }); 
+    });
+    this.ProductService.getDataClientes().subscribe(data =>{
+      console.log(data);
+      this.clients= data;
+    });
   }
 
   ngOnInit() {

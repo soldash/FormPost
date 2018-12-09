@@ -1,35 +1,56 @@
+<div class="w3-container">
 
-  <div class="select">
-    <select [(ngModel)]="selectedProduct" name="Seleccione Producto">
-      <option [value]="product.name" *ngFor ="let product of products" >{{product.name}}</option>
-    </select>
+  <div class="w3-row">
+    <div class="w3-col m5 l5 w3-margin">
+      <div>
+        <h2 class="w3-title">Ingrese Cliente</h2>
+      </div>
+      <div class="select">
+        <select [(ngModel)]="selectedClient" name="Seleccione Producto">
+          <option [value]="client.Nombre" *ngFor="let client of clients">{{client.Nombre}} - Doc: {{client.Documento}}</option>
+        </select></div>
+    </div>
+    <div class="w3-col m5 l5 w3-margin">
+      <div>
+        <h2 class="w3-title">Agrege Productos</h2>
+      </div>
+      <div class="select">
+        <select [(ngModel)]="selectedProduct" name="Seleccione Producto">
+          <option [value]="product.name" *ngFor="let product of products">{{product.name}}</option>
+        </select>
+      </div>
+    </div>
   </div>
-  <br>
-    <button (click)="createProduct()" class="button button1">
-      Agregar Producto
-    </button>
-  
+</div>
+<br>
+<button (click)="createProduct()" class="button button1">
+  Agregar Producto
+</button>
+
 <p>{{users}}</p>
-  
-    <table class="blueTable">
-        <th>codigo</th>
-        <th>Producto</th>
-        <th>Valor</th>
-        <th>Descripcion</th>
-        <th>Retirar</th>
-      <tr *ngFor ="let user of users"><td>{{user.code}}</td><td>{{user.name}}</td><td>$ {{user.price}}</td><td>{{user.description}}</td>
+
+<table class="blueTable">
+  <th>codigo</th>
+  <th>Producto</th>
+  <th>Valor</th>
+  <th>Descripcion</th>
+  <th>Retirar</th>
+  <tr *ngFor="let user of users">
+    <td>{{user.code}}</td>
+    <td>{{user.name}}</td>
+    <td>$ {{user.price}}</td>
+    <td>{{user.description}}</td>
     <button (click)="deleteUser(user)" class="button button3">
-        X
-      </button>
+      X
+    </button>
+  </tr>
+  <tfoot>
+    <tr>
+      <td> </td>
+      <td>Total Compra: </td>
+      <td>$ {{Total}}</td>
     </tr>
-    <tfoot>
-        <tr>
-        <td> </td>
-        <td>Total Compra: </td>
-        <td >$ {{Total}}</td>
-        </tr>
-        </tfoot>
+  </tfoot>
 
 </table>
-
-
+   
