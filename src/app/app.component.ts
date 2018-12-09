@@ -8,4 +8,26 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'formPos';
+  CompraVisibility = true;
+  AProductoVisibility = true;
+  ACLienteVisibility = true;
+
+  showCompra(){
+    this.CompraVisibility=!this.CompraVisibility;
+    this.AProductoVisibility = true;
+    this.ACLienteVisibility = true;
+  }
+  showProducto(){
+    this.AProductoVisibility=!this.AProductoVisibility;
+    this.CompraVisibility = true;
+    this.ACLienteVisibility = true;
+  }
+  showCliente(){
+    this.ACLienteVisibility=!this.ACLienteVisibility;
+    this.CompraVisibility = true;
+    this.AProductoVisibility = true;
+    console.log(this.ACLienteVisibility);
+  }
+
+
 }
