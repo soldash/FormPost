@@ -1,13 +1,13 @@
 <div class="w3-container">
-
-  <div class="w3-row">
+  <h3>Cedula del Cliente: {{Cliente.Documento}}</h3>
+  <div class="w3-row w3-center">
     <div class="w3-col m5 l5 w3-margin">
       <div>
         <h2 class="w3-title">Ingrese Cliente</h2>
       </div>
       <div class="select">
-        <select [(ngModel)]="selectedClient" name="Seleccione Producto">
-          <option [value]="client.Nombre" *ngFor="let client of clients">{{client.Nombre}} - Doc: {{client.Documento}}</option>
+        <select [(ngModel)]="selectedClient" name="Seleccione Producto" (change)="onChannge(selectedClient)">
+          <option [value]="client.Nombre" *ngFor="let client of clients">{{client.Nombre}}  </option>
         </select></div>
     </div>
     <div class="w3-col m5 l5 w3-margin">
@@ -23,9 +23,11 @@
   </div>
 </div>
 <br>
+<div class="w3-center">
 <button (click)="createProduct()" class="button button1">
   Agregar Producto
 </button>
+</div>
 
 <p>{{users}}</p>
 
@@ -53,4 +55,9 @@
   </tfoot>
 
 </table>
+<div >
+  <pre>
+  selectedProduct {{users|json}}
+  </pre>
+</div>
    
