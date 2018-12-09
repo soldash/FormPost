@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'hello-word',
+    selector: 'titleFP',
     templateUrl: './first.component.html' ,
     styleUrls: ['./first.componet.css']
 })
