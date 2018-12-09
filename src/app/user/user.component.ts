@@ -35,7 +35,7 @@ export class UserComponent implements OnInit {
   createProduct(){
       //console.log(this.selectedProduct);
       for(var i =0; i< this.products.length;i++){
-        if(this.products[i].nombre==this.selectedProduct){
+        if(this.products[i].name==this.selectedProduct){
           this.users.push(this.products[i]);
         }
       }
@@ -45,15 +45,15 @@ export class UserComponent implements OnInit {
   addvalues(){
       this.Total=0;
       for(var j =0; j< this.users.length;j++){
-      this.Total = this.Total + this.users[j].precio;
+      this.Total = this.Total + parseInt(this.users[j].price);
       console.log("####--"+this.Total)
     }
   }
 
   constructor(private ProductService : ProductosService) { 
     this.ProductService.getData().subscribe(data =>{
-      //console.log(data);
-      this.products= data;
+      console.log(data.items);
+      this.products= data.items;
     }); 
   }
 

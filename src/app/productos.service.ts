@@ -12,7 +12,6 @@ export class ProductosService {
 
   }
   getData(){
-    //return this.http.get<product[]>('http://localhost:18080/productos');
-    return this.http.get<product[]>('http://54.166.167.16:8080/productos');
+    return this.http.get<product>('http://142.93.120.255:3789/pos/api/products');
   }
 }
