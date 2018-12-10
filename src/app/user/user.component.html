@@ -32,7 +32,7 @@
 
 <p>{{users}}</p>
 
-<table class="blueTable">
+<table class="blueTable w3-margin w3-padding-16" style="width:95%">
   <th>codigo</th>
   <th>Producto</th>
   <th>Valor</th>
@@ -61,8 +61,55 @@
       Realizar Compra
     </button>
 </div>
+<br>
+<br>
+<div [hidden]="showBill" class="w3-container w3-card-4 w3-margin w3-padding-16" style="width:80%">
+    <h2>Factura</h2>
+    <h3>{{date}}</h3>
+    <br>
+    <pre><h4 aling= "left">Cliente:</h4> <br> Nombre: {{Cliente.Nombre}} <br> Cedula: {{Cliente.Documento}}
+    </pre>
+  
+    <table class="w3-table-all w3-center">
+      <tr>
+        <th>Cantidad</th>
+        <th>Codigo</th>
+        <th>Articulo</th>
+        <th>Precio Unitario</th>
+        <th>Precio Total</th>
+      </tr>
+      <tr *ngFor="let article of compra.data">
+        <td>{{article.cantidad}}</td>
+        <td>{{article.code}}</td>
+        <td>{{article.name}}</td>
+        <td>$ {{article.priceXUnidad}}</td>
+        <td>$ {{article.priceTotal}}</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><b>Sub-Total</b></td>
+        <td>$ {{compra.compra.precioTotal}}</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><b>Iva</b></td>
+          <td>$ {{compra.compra.soloIva}}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><b>Total</b></td>
+            <td>$ {{compra.compra.precioTotalIva}}</td>
+          </tr>
+    </table>
+  </div>
 
-<div >
+<div [hidden]=true>
   <pre>
   selectedProduct {{users|json}}
   </pre>
