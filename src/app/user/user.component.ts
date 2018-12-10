@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductosService } from 'src/app/productos.service';
+import { factura } from '../factura';
 
 
 
@@ -13,15 +14,17 @@ export class UserComponent implements OnInit {
 
   users: any[] = [];
   Cliente: any = {};
-  //products: any[] = [{"nombre" :"Pasta","precio":2000}, {"nombre" :"Frijol","precio":4000},{"nombre" :"Jabon","precio":1500},{"nombre" :"Arroz","precio":900}];
   selectedProduct: any = {};
   selectedClient: any = {};
   products = [];
   clients = [];
   Total = 0;
+  date = new Date().toLocaleDateString();
+  compra: factura={"data":[{"_id":"5c0aafe18b62b8597f1e2bf7","name":"luces","priceXUnidad":250000,"priceXUnidadIva":297500,"priceTotal":500000,"priceTotalIva":595000,"cantidad":2,"code":"P003","description":"Descrición de microservicio"},{"_id":"5c0d5a356c5b410a57736fb8","name":"llantas","priceXUnidad":80000,"priceXUnidadIva":95200,"priceTotal":80000,"priceTotalIva":95200,"cantidad":1,"code":"P005","description":"llantas para bicicleta de montaña"}],"compra":{"precioTotal":580000,"precioTotalIva":690200,"soloIva":110200,"valorPagado":690200,"cambio":0},"message":"Los datos fueron cargados correctamente"};
 
   ButtonAdd = true;
   ButtonBuy = true;
+  showBill = true;
 
   onChannge(client) {
     for (var i = 0; i < this.clients.length; i++) {
@@ -74,12 +77,11 @@ export class UserComponent implements OnInit {
 
   makeBuy(){
     this.ButtonBuy=true;
-    this.ProductService.addClient('http://13.59.81.54:3009/pos/api/pagos/',this.users)
+    this.ProductService.addBill('http://13.59.81.54:3009/pos/api/pagos/',this.users)
     .subscribe(hero=>{
-      console.log("Hero" + hero);
-      this.users=hero;
-      console.log("users" + this.users);
+      this.compra=hero;
       this.ButtonBuy=false;
+      this.showBill=false;
     });
   }
 

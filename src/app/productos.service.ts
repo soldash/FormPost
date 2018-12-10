@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http'
 
 import { product } from './product'
 import { clientes } from './clientes'
+import { factura } from './factura'
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,9 @@ export class ProductosService {
   }
   addClient (url ,hero){
     return this.http.post<clientes[]>(url, hero);
+  }
+  addBill (url ,hero){
+    return this.http.post<factura>(url, hero);
   }
 
 }
