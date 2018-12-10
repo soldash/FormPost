@@ -1,1 +1,30 @@
-<h1 class="w3-blue" style="text-shadow:1px 1px 0 #444">Crear Cliente</h1>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<div class="w3-container">
+  <h3 class="w3-margin w3-padding-16" style="text-shadow:1px 1px 0 #444">  Crear Cliente</h3>
+</div>
+
+<div class="w3-container">
+    <div class="w3-row w3-center">
+        <div class="w3-col m5 l5 w3-margin">
+            <label>Nombre</label>
+            <input [(ngModel)]="Nombre" class="w3-input" type="text">
+        </div>
+        <div class="w3-col m5 l5 w3-margin">
+            <label>Documento</label>
+            <input [(ngModel)]="Documento" class="w3-input" type="number">
+        </div>
+    </div>
+</div>
+<br><br>
+<div class="w3-center">
+    <button (click)="createClient()" class="w3-btn w3-white w3-border w3-border-green w3-round-large">
+      Crear Cliente
+    </button>
+</div>
+<div >
+    <pre>
+    body {{body|json}}
+    </pre>
+  </div>
+
+
