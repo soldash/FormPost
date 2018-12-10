@@ -19,9 +19,9 @@ export class ProductosService {
   getDataClientes(){
     return this.http.get<clientes[]>('https://apiclienteus.herokuapp.com/clientes');
   }
-  addClient (hero){
+  addClient (url ,hero){
     console.log("hero",hero);
-    return this.http.post<clientes[]>('https://apiclienteus.herokuapp.com/clientes', hero);
+    return this.http.post<clientes[]>(url, hero);
   }
 
 }

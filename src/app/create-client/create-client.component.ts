@@ -18,7 +18,7 @@ export class CreateClientComponent implements OnInit {
     this.body.cliente.Nombre= this.Nombre;
     this.body.cliente.Documento= this.Documento.toString();
     console.log("body"+this.body);
-    this.ProductService.addClient(this.body).subscribe(hero=>{console.log(hero);});
+    this.ProductService.addClient('https://apiclienteus.herokuapp.com/clientes',this.body).subscribe(hero=>{console.log(hero);});
   }
 
   
