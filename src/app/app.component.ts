@@ -8,9 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'formPos';
-  CompraVisibility = true;
+  CompraVisibility = false;
   AProductoVisibility = true;
-  ACLienteVisibility = false;
+  ACLienteVisibility = true;
 
   showCompra(){
     this.CompraVisibility=!this.CompraVisibility;

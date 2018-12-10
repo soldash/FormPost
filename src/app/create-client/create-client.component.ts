@@ -11,9 +11,8 @@ export class CreateClientComponent implements OnInit {
   Nombre: String = "";
   Documento: String = "";
   body: any ={};
+  ButtonSend = true;
   createClient(){
-    console.log("Nombre" + this.Nombre);
-    console.log("Documento"+this.Documento);
     this.body.cliente={};
     this.body.cliente.Nombre= this.Nombre;
     this.body.cliente.Documento= this.Documento.toString();
@@ -21,6 +20,16 @@ export class CreateClientComponent implements OnInit {
     this.ProductService.addClient('https://apiclienteus.herokuapp.com/clientes',this.body).subscribe(hero=>{console.log(hero);});
   }
 
+  onEnter(){
+    console.log("ENtro!!!")
+    console.log("Nombre " + this.Nombre);
+    console.log("Documento "+this.Documento);
+    if(this.Nombre!==""&&this.Nombre!==null){
+      if(this.Documento!==""&&this.Documento!==null){
+        this.ButtonSend = false;
+      }else{this.ButtonSend = true;}
+    }else{this.ButtonSend = true;}
+  }
   
 
   constructor(private ProductService: ProductosService) { 

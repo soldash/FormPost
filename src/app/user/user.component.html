@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <div class="w3-container">
   <h3 class="w3-margin w3-padding-16" style="text-shadow:1px 1px 0 #444">Cedula del Cliente: {{Cliente.Documento}}</h3>
   <div class="w3-row w3-center">
@@ -6,16 +7,16 @@
         <h2 class="w3-title">Ingrese Cliente</h2>
       </div>
       <div class="select">
-        <select [(ngModel)]="selectedClient" name="Seleccione Producto" (change)="onChannge(selectedClient)">
+        <select [(ngModel)]="selectedClient" name="Seleccione Cliente" (change)="onChannge(selectedClient)">
           <option [value]="client.Nombre" *ngFor="let client of clients">{{client.Nombre}}  </option>
         </select></div>
     </div>
     <div class="w3-col m5 l5 w3-margin">
       <div>
-        <h2 class="w3-title">Agrege Productos</h2>
+        <h2 class="w3-title">Agregue Productos</h2>
       </div>
       <div class="select">
-        <select [(ngModel)]="selectedProduct" name="Seleccione Producto">
+        <select [(ngModel)]="selectedProduct" name="Seleccione Producto" (change)="CanBuy()">
           <option [value]="product.name" *ngFor="let product of products">{{product.name}}</option>
         </select>
       </div>
@@ -24,7 +25,7 @@
 </div>
 <br>
 <div class="w3-center">
-<button (click)="createProduct()" class="button button1">
+<button [disabled]="ButtonAdd" (click)="createProduct()"  class="w3-btn w3-white w3-border w3-border-green w3-round-large">
   Agregar Producto
 </button>
 </div>
@@ -53,8 +54,14 @@
       <td>$ {{Total}}</td>
     </tr>
   </tfoot>
-
 </table>
+<br><br>
+<div class="w3-center">
+    <button [disabled]="ButtonBuy" (click)="makeBuy()" class="w3-btn w3-white w3-border w3-border-blue w3-round-large">
+      Realizar Compra
+    </button>
+</div>
+
 <div >
   <pre>
   selectedProduct {{users|json}}

@@ -20,14 +20,16 @@ export class UserComponent implements OnInit {
   clients = [];
   Total = 0;
 
+  ButtonAdd = true;
+  ButtonBuy = true;
+
   onChannge(client) {
     for (var i = 0; i < this.clients.length; i++) {
-      console.log("!!!!!!!----" + client);
       if (this.clients[i].Nombre == client) {
         this.Cliente = this.clients[i];
-        console.log("!!!!!!!----" + this.Cliente);
         break;
       }
+      this.ButtonAdd = false;
     }
   }
 
@@ -37,19 +39,20 @@ export class UserComponent implements OnInit {
         console.log(usert);
         this.users.splice(i, 1);
         this.addvalues()
+        this.CanBuy()
         break;
       }
     }
 
   }
   createProduct() {
-    //console.log(this.selectedProduct);
     for (var i = 0; i < this.products.length; i++) {
       if (this.products[i].name == this.selectedProduct) {
         this.users.push(this.products[i]);
       }
     }
     this.addvalues()
+    this.CanBuy()
   }
 
   addvalues() {
@@ -59,6 +62,27 @@ export class UserComponent implements OnInit {
       console.log("####--" + this.Total)
     }
   }
+
+  CanBuy(){
+    console.log("ENtro!! " + this.users.length)
+    if(this.users.length>0){
+      this.ButtonBuy=false;
+    }else{
+      this.ButtonBuy=true;
+    }
+  }
+
+  makeBuy(){
+    this.ButtonBuy=true;
+    this.ProductService.addClient('http://13.59.81.54:3009/pos/api/pagos/',this.users)
+    .subscribe(hero=>{
+      console.log("Hero" + hero);
+      this.users=hero;
+      console.log("users" + this.users);
+      this.ButtonBuy=false;
+    });
+  }
+
 
   constructor(private ProductService: ProductosService) {
 

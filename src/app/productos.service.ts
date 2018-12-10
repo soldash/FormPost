@@ -20,7 +20,6 @@ export class ProductosService {
     return this.http.get<clientes[]>('https://apiclienteus.herokuapp.com/clientes');
   }
   addClient (url ,hero){
-    console.log("hero",hero);
     return this.http.post<clientes[]>(url, hero);
   }
 
