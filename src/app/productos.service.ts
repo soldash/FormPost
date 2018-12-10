@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 
+
 import { product } from './product'
 import { clientes } from './clientes'
 
@@ -18,4 +19,9 @@ export class ProductosService {
   getDataClientes(){
     return this.http.get<clientes[]>('https://apiclienteus.herokuapp.com/clientes');
   }
+  addClient (url ,hero){
+    console.log("hero",hero);
+    return this.http.post<clientes[]>(url, hero);
+  }
+
 }

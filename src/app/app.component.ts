@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'formPos';
   CompraVisibility = true;
   AProductoVisibility = true;
-  ACLienteVisibility = true;
+  ACLienteVisibility = false;
 
   showCompra(){
     this.CompraVisibility=!this.CompraVisibility;
