@@ -1,2 +1,31 @@
-<hello-word></hello-word>
-<app-user></app-user>
+<head>
+        <title>Punto de venta </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      </head>
+<titleFP></titleFP>
+
+<div class="w3-container">
+        <div class="w3-bar">
+            <button (click)="showCompra()" class="w3-bar-item w3-button w3-black" style="width:33.3%">
+              Registrar Venta
+            </button>
+            <button (click)="showCliente()" class="w3-bar-item w3-button w3-teal" style="width:33.3%">
+              Agregar Cliente
+            </button>
+                <button (click)="showProducto()" class="w3-bar-item w3-button w3-black" style="width:33.3%">
+                  Agregar Producto
+                </button>
+        </div>
+      </div>
+
+<app-user [hidden]= "CompraVisibility"></app-user>
+<app-create-product [hidden]= "AProductoVisibility"></app-create-product>
+<app-create-client [hidden]= "ACLienteVisibility"></app-create-client>
+
+
+
+

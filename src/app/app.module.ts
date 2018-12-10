@@ -8,12 +8,16 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { ProductosService} from './productos.service';
+import { CreateProductComponent } from './create-product/create-product.component';
+import { CreateClientComponent } from './create-client/create-client.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HelloWord,
-    UserComponent
+    UserComponent,
+    CreateProductComponent,
+    CreateClientComponent
   ],
   imports: [
     BrowserModule,
